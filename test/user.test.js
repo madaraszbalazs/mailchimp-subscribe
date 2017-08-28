@@ -21,10 +21,10 @@ describe('USER:', () => {
       expect(await User.count({})).to.equal(1);
     });
 
-    it('Should get back an error, if name parameter is empty.', async () => {
-      const newUser = new User({ email: 'test@user.com' });
+    it('Should get back an error, if email parameter is empty.', async () => {
+      const newUser = new User({ name: 'Test User' });
       const result = await chai.request(server).post('/api/user').send(newUser);
-      expect(result.body.errors.name.message).to.equal('Path `name` is required.');
+      expect(result.body.errors.email.message).to.equal('Path `email` is required.');
       expect(await User.count({})).to.equal(0);
     });
 
@@ -34,6 +34,13 @@ describe('USER:', () => {
       const result = await chai.request(server).post('/api/user').send(newUser);
       expect(result.body.errors.email.message).to.equal(`${email} is not a valid email address!`);
       expect(await User.count({})).to.equal(0);
+    });
+
+    it('Should get back an error, if email is already exist.', async () => {
+      const newUser = new User({ name: 'Test User', email: 'test@user.com' });
+      await chai.request(server).post('/api/user').send(newUser);
+      await chai.request(server).post('/api/user').send(newUser);
+      expect(await User.count({})).to.equal(1);
     });
   });
 });
