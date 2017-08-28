@@ -1,0 +1,44 @@
+{
+  "name": "mailchimp-subscribe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib",
+  "scripts": {
+    "test": "npm run mocha && npm run eslint",
+    "start": "node_modules/.bin/nodemon --ignore 'test/*.js' --exec 'babel-node' lib/index.js",
+    "build": "babel lib --out-dir dist/lib",
+    "serve": "npm run build && node dist/lib",
+    "eslint": "node_modules/.bin/eslint lib/** test/**",
+    "mocha": "node_modules/.bin/mocha test --compilers js:babel-register --require babel-polyfill"
+  },
+  "author": "Madarász Balázs",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.4",
+    "express": "^4.15.4",
+    "mongoose": "4.9.3",
+    "morgan": "^1.8.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.1",
+    "chai-http": "^3.0.0",
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb-base": "^11.3.2",
+    "eslint-plugin-import": "^2.7.0",
+    "mocha": "^3.5.0",
+    "nodemon": "^1.11.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ]
+  }
+}
