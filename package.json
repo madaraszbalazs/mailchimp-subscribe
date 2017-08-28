@@ -14,7 +14,6 @@
   "author": "Madarász Balázs",
   "license": "ISC",
   "dependencies": {
-    "async": "^2.5.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-polyfill": "^6.26.0",
@@ -26,7 +25,8 @@
     "express": "^4.15.4",
     "mailchimp-api-v3": "^1.7.0",
     "mongoose": "4.9.3",
-    "morgan": "^1.8.2"
+    "morgan": "^1.8.2",
+    "swagger-ui-express": "^2.0.6"
   },
   "devDependencies": {
     "chai": "^4.1.1",
