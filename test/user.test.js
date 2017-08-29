@@ -9,7 +9,7 @@ const expect = chai.expect;
 chai.use(chaiHttp);
 
 describe('USER:', () => {
-  const email = 'tesztuser001@gmail.com';
+  const email = 'tesztuser0001@gmail.com';
 
   beforeEach(async () => {
     await mailchimp.deleteAll();
