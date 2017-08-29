@@ -9,7 +9,7 @@ const expect = chai.expect;
 chai.use(chaiHttp);
 
 describe('USER:', () => {
-  const email = 'teszt7@gmail.com';
+  const email = 'tesztuser001@gmail.com';
 
   beforeEach(async () => {
     await mailchimp.deleteAll();
@@ -17,13 +17,14 @@ describe('USER:', () => {
   });
 
   describe('- Subscribe a user:', () => {
-    it('Should get back the new user, if every parameter is valid.', async () => {
+    it('Should get back the new user, if every parameter is valid and inserted in the db and in the Mailchimp.', async () => {
       const newUser = new User({ name: 'Test User', email });
       const result = await chai.request(server).post('/api/user').send(newUser);
-      console.log(result.body);
       expect(result.body.name).to.equal('Test User');
       expect(result.body.email).to.equal(email);
       expect(await User.count({})).to.equal(1);
+      const mailUser = await mailchimp.get(result.body);
+      expect(mailUser.email_address).to.equal(email);
     });
 
     it('Should get back an error, if email parameter is empty.', async () => {
@@ -41,7 +42,7 @@ describe('USER:', () => {
       expect(await User.count({})).to.equal(0);
     });
 
-    it('Should get back an error, if email is already exist.', async () => {
+    it('Should get back an error, if email is already exist in the mail list.', async () => {
       const newUser = new User({ name: 'Test User', email });
       const result1 = await chai.request(server).post('/api/user').send(newUser);
       expect(result1.body.name).to.equal('Test User');

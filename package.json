@@ -4,7 +4,7 @@
   "description": "",
   "main": "./lib",
   "scripts": {
-    "test": "npm run mocha && npm run eslint",
+    "test": "NODE_ENV=test npm run mocha && npm run eslint",
     "start": "node_modules/.bin/nodemon --ignore 'test/*.js' --exec 'babel-node' lib/index.js",
     "build": "babel lib --out-dir dist/lib",
     "serve": "npm run build && node dist/lib",

@@ -32,8 +32,8 @@ paths:
         schema:
           $ref: "#/definitions/User"
       responses:
-        405:
-          description: "Invalid input"
+        200:
+          description: "Give back the inserted user or the error messages."
 
 
 definitions:
