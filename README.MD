@@ -5,7 +5,8 @@ $ git clone git://github.com/madaraszbalazs/mailchimp-subscribe.git
 $ cd mailchimp-subscribe
 $ npm install
 ```
-2. Állítsd be a MailChimp API kulcsot:
+2. Állítsd be a MailChimp API kulcsot a config fájlba:
+(Kézzel kell beállítani, mert ha github-ra feltöltöm a kulcsot, azt észleli a Mailchimp és érvényteleníti a kulcsot.)
 * Jelentkezz be: https://login.mailchimp.com/ (madbazsa/Mailchimp6!)
 * Nyisd meg a Profile -> Extras -> API keys
 * Másold az API key-t a lib/config/config.js fájl mailchimp_api_key értékéhez.
