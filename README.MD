@@ -1,8 +1,8 @@
 ### Telepítés
 1. Töltsd le a következő git paranccsal a projektet, vagy az email-be mellékelt zip fájlt és csomagold ki:
 ```
-$ git clone git://github.com/madaraszbalazs/warehouse.git
-$ cd warehouse
+$ git clone git://github.com/madaraszbalazs/mailchimp-subscribe.git
+$ cd mailchimp-subscribe
 $ npm install
 ```
 2. Állítsd be a MailChimp API kulcsot:
